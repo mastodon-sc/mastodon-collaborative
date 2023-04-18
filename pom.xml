@@ -96,6 +96,8 @@
 		<license.copyrightOwners>Vladimir Ulman</license.copyrightOwners>
 
 		<mastodon.version>1.0.0-beta-27-SNAPSHOT</mastodon.version>
+		<mastodon-tomancak.version>0.2.1</mastodon-tomancak.version>
+		<mastodon-collaborative.version>0.9.0-SNAPSHOT</mastodon-collaborative.version>
 	</properties>
 
 	<repositories>

@@ -134,8 +134,6 @@
 		<license.projectName>mastodon-collaborative</license.projectName>
 		<license.organizationName>Mastodon authors</license.organizationName>
 		<license.copyrightOwners>Vladimir Ulman</license.copyrightOwners>
-
-		<mastodon.version>1.0.0-beta-21</mastodon.version>
 	</properties>
 
 	<repositories>
@@ -154,11 +152,6 @@
 			<groupId>org.mastodon</groupId>
 			<artifactId>mastodon</artifactId>
 			<version>${mastodon.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mastodon</groupId>
-			<artifactId>mastodon-tomancak</artifactId>
-			<version>0.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.undertow</groupId>
