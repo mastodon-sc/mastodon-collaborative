@@ -3,28 +3,22 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.scijava</groupId>
-		<artifactId>pom-scijava</artifactId>
-		<version>34.1.0</version>
+		<groupId>org.mastodon</groupId>
+		<artifactId>mastodon-collaborative</artifactId>
+		<version>0.9.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.mastodon</groupId>
-	<artifactId>mastodon-collaborative</artifactId>
-	<version>0.9.0-SNAPSHOT</version>
+	<artifactId>mastodon-collaborative-client</artifactId>
 
-	<packaging>pom</packaging>
-
-	<modules>
-		<module>server</module>
-		<module>client</module>
-	</modules>
+	<packaging>jar</packaging>
 
 	<organization>
 		<name>Mastodon Science</name>
 		<url>http://github.com/mastodon-sc</url>
 	</organization>
 
-	<name>Tomancak Lab Mastodon Plugin for Collaborative Manual Tracking</name>
+	<name>Tomancak Lab Mastodon Plugin for Collaborative Manual Tracking (Mastodon client module)</name>
 	<description>Mastodon plugins to foster collaborative annotations</description>
 	<url>https://github.com/mastodon-sc/mastodon-collaborative</url>
 	<inceptionYear>2020</inceptionYear>
@@ -85,6 +79,52 @@
 		</repository>
 	</distributionManagement>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>2.2.4</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
+					<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+					<includeOnlyProperties>
+						<includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
+						<includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
+					</includeOnlyProperties>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>sh</executable>
+					<arguments>
+						<argument>-c</argument>
+						<argument>rm -v '${project.build.outputDirectory}'/COMMITrev_*; touch '${project.build.outputDirectory}'/COMMITrev_${git.commit.id.abbrev}_${project.artifactId};</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<!-- ====================================== -->
 
 	<properties>
@@ -95,7 +135,7 @@
 		<license.organizationName>Mastodon authors</license.organizationName>
 		<license.copyrightOwners>Vladimir Ulman</license.copyrightOwners>
 
-		<mastodon.version>1.0.0-beta-27-SNAPSHOT</mastodon.version>
+		<mastodon.version>1.0.0-beta-21</mastodon.version>
 	</properties>
 
 	<repositories>
@@ -108,4 +148,27 @@
 			<url>https://artifactory.cs.vsb.cz/it4i/</url>
 		</repository>
 	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.mastodon</groupId>
+			<artifactId>mastodon</artifactId>
+			<version>${mastodon.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mastodon</groupId>
+			<artifactId>mastodon-tomancak</artifactId>
+			<version>0.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.undertow</groupId>
+			<artifactId>undertow-core</artifactId>
+			<version>2.2.15.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>de.mpicbg.ulman</groupId>
+			<artifactId>logs-processor</artifactId>
+			<version>1.1</version>
+		</dependency>
+	</dependencies>
 </project>

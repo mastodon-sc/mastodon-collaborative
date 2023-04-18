@@ -18,7 +18,7 @@
 		<url>http://github.com/mastodon-sc</url>
 	</organization>
 
-	<name>Tomancak Lab Mastodon Plugin for Collaborative Manual Tracking</name>
+	<name>Tomancak Lab Mastodon Plugin for Collaborative Manual Tracking (server module)</name>
 	<description>Mastodon plugins to foster collaborative annotations</description>
 	<url>https://github.com/mastodon-sc/mastodon-collaborative</url>
 	<inceptionYear>2020</inceptionYear>
