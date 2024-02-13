@@ -10,7 +10,7 @@
 
 	<groupId>org.mastodon</groupId>
 	<artifactId>mastodon-collaborative</artifactId>
-	<version>0.8.1-SNAPSHOT</version>
+	<version>0.8.1</version>
 
 	<organization>
 		<name>Mastodon Science</name>
@@ -61,7 +61,7 @@
 
 	<scm>
 		<url>https://github.com/mastodon-sc/mastodon-collaborative</url>
-		<tag>HEAD</tag>
+		<tag>mastodon-collaborative-0.8.1</tag>
 	</scm>
 	<issueManagement>
 		<system>GitHub Issues</system>
