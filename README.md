@@ -1,3 +1,10 @@
+## "The king is dead, long live the king!"
+
+10-11-2024: This project is considered deprecated in favor of [collaborative tracking based on GIT](https://github.com/mastodon-sc/mastodon-git).
+It has also disappeared from Fiji update sites. If you still want to use it, you must compile it from the sources here, or ask `ulman při fi.muni.cz`.
+
+-----
+
 # What is mastodon-collaborative?
 A suite of Mastodon plugins originally developed to foster collaborative tracking.
 
